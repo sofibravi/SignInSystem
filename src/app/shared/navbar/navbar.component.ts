@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   user: User = this.authService.currentUser;
 
+  isAdmin: boolean = this.authService.isAdmin();
+
   constructor(protected authService: AuthService, private router: Router) {}
 
   onLogout(): void {

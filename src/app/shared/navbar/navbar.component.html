@@ -2,7 +2,15 @@
   <p-menubar>
     <ng-template pTemplate="start">
       <div class="navbar">
-        <p>Hola {{ user.user }}!</p>
+        <p>
+          Hola {{ user.user }}!
+          <i
+            class="em"
+            [ngClass]="{ 'em-sunglasses': isAdmin, 'em-smile': !isAdmin }"
+            aria-role="presentation"
+            aria-label="SMILING FACE WITH SUNGLASSES"
+          ></i>
+        </p>
         <a (click)="onLogout()">
           <i class="pi pi-sign-out"></i>
         </a>

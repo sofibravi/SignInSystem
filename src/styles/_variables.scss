@@ -1,7 +1,8 @@
 :root {
-  --color-primary: #00184d;
+  --color-primary: #7ba4cf;
   --color-secondary: #ffffff;
   --color-danger: #ff0000;
   --color-success: green;
-  --color-bg: gainsboro;
+  --color-bg: #ffffff;
+  --color-bg-card: var(--color-secondary);
 }
