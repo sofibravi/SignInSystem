@@ -1,0 +1,12 @@
+<ng-container *ngIf="user">
+  <p-menubar>
+    <ng-template pTemplate="start">
+      <div class="navbar">
+        <p>Hola {{ user.user }}!</p>
+        <a (click)="onLogout()">
+          <i class="pi pi-sign-out"></i>
+        </a>
+      </div>
+    </ng-template>
+  </p-menubar>
+</ng-container>

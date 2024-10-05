@@ -1,0 +1,30 @@
+app-navbar {
+  p-menubar .p-menubar {
+    border-radius: 0;
+    width: 100%;
+    background-color: #00184d;
+    padding: 0.5rem 2rem;
+
+    .p-menubar-start {
+      width: 100%;
+    }
+  }
+
+  .navbar {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .pi-sign-out:before {
+    font-size: 1.5rem;
+  }
+}

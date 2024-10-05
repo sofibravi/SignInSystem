@@ -1,0 +1,72 @@
+<div class="login-container">
+  <div class="login-panel">
+    <h2>LOGIN</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="login-panel_inputs">
+        <div class="field">
+          <div class="p-input-icon-left mb-4">
+            <i class="pi pi-envelope"></i>
+            <input
+              id="username"
+              placeholder="Usuario"
+              type="text"
+              pInputText
+              formControlName="username"
+              class="p-inputtext p-component p-element md:w-25rem p-filled"
+              [ngClass]="{'ng-invalid ng-dirty': isSubmitted && loginForm.controls['username'].errors?.['required']}"
+            />
+          </div>
+          <p
+            class="error-message"
+            *ngIf="isSubmitted && loginForm.controls['username'].errors?.['required']"
+          >
+            * El usuario es requerido
+          </p>
+        </div>
+
+        <div class="field">
+          <div class="p-input-icon-left mb-4 password">
+            <i class="pi pi-lock"></i>
+            <input
+              id="contraseña"
+              placeholder="Contraseña"
+              [type]="typePassword"
+              pInputText
+              formControlName="password"
+              class="p-inputtext p-component p-element md:w-25rem"
+              [ngClass]="{'ng-invalid ng-dirty': isSubmitted && (loginForm.controls['password'].errors?.['required'] || loginForm.controls['password'].errors?.['minlength'])}"
+            />
+            <i
+              class="pi"
+              [ngClass]="{
+                'pi-eye-slash': showPassword,
+                'pi-eye': !showPassword
+              }"
+              (click)="togglePassword()"
+            ></i>
+          </div>
+          <p
+            class="error-message"
+            *ngIf="isSubmitted && loginForm.controls['password'].errors?.['required']"
+          >
+            * La contraseña es requerida
+          </p>
+          <p
+            class="error-message"
+            *ngIf="isSubmitted && loginForm.controls['password'].errors?.['minlength']"
+          >
+            * La contraseña debe tener al menos 4 caracteres
+          </p>
+        </div>
+      </div>
+
+      <div class="field">
+        <p-button label="Login" type="submit"></p-button>
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+    </form>
+  </div>
+</div>

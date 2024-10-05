@@ -1,0 +1,35 @@
+app-photos {
+  .album-card-photos {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    gap: 2rem;
+  }
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 530px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card_header-body {
+      justify-content: space-between;
+    }
+  }
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}

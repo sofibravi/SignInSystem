@@ -1,0 +1,34 @@
+<ng-container *ngIf="initializeData$ | async as data">
+  <ng-container *ngIf="album$ | async as album">
+    <div class="album-card-photos">
+      <app-breadcrumb [route]="route"></app-breadcrumb>
+      <app-card-album [album]="album"></app-card-album>
+
+      <ng-container *ngIf="photos$ | async as photos">
+        <div class="photos">
+          <div
+            *ngFor="
+              let photo of photos
+                | paginate : { itemsPerPage: 10, currentPage: page }
+            "
+            class="photos_cards"
+          >
+            <app-card-item
+              [data]="photo"
+              [hasDelete]="true"
+              (actionDelete)="onDeletePhoto($event)"
+            ></app-card-item>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <pagination-controls
+      *ngIf="photos$ | async"
+      class="pagination"
+      (pageChange)="page = $event"
+      [responsive]="true"
+      previousLabel=""
+      nextLabel=""
+    ></pagination-controls>
+  </ng-container>
+</ng-container>

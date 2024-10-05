@@ -1,0 +1,36 @@
+<ng-container *ngIf="initializeData$ | async as data">
+  <ng-container *ngIf="album$ | async as album">
+    <div class="album-card-posts">
+      <app-breadcrumb [route]="route"></app-breadcrumb>
+      <app-card-album [album]="album"></app-card-album>
+
+      <ng-container *ngIf="posts$ | async as posts">
+        <div class="posts">
+          <div
+            *ngFor="
+              let post of posts
+                | paginate : { itemsPerPage: 10, currentPage: page }
+            "
+            class="posts_cards"
+          >
+            <app-card-item
+              [data]="post"
+              [button_label_1]="'Editar'"
+              [hasDelete]="true"
+              (actionDelete)="onDeletePost($event)"
+              (actionOne)="onChangePost($event)"
+            ></app-card-item>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <pagination-controls
+      *ngIf="posts$ | async"
+      class="pagination"
+      (pageChange)="page = $event"
+      [responsive]="true"
+      previousLabel=""
+      nextLabel=""
+    ></pagination-controls>
+  </ng-container>
+</ng-container>

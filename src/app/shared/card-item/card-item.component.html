@@ -1,0 +1,34 @@
+<ng-container *ngIf="data">
+  <p-card>
+    <div class="card_header-body">
+      <div class="card_header">
+        <h3>{{ data.title }}</h3>
+        <ng-container *ngIf="isAdmin && hasDelete">
+          <div class="card_header-delete">
+            <a (click)="onActionDelete(data.id)">
+              <i class="pi pi-trash"></i>
+            </a>
+          </div>
+        </ng-container>
+      </div>
+      <div class="card_images" *ngIf="data.thumbnailUrl">
+        <img [src]="data.thumbnailUrl" />
+      </div>
+      <p *ngIf="data.body">{{ data.body }}</p>
+    </div>
+    <ng-container *ngIf="isAdmin">
+      <div class="btn-actions">
+        <p-button
+          *ngIf="button_label_1"
+          [label]="button_label_1"
+          (click)="onActionOne(data.id)"
+        />
+        <p-button
+          *ngIf="button_label_2"
+          [label]="button_label_2"
+          (click)="onActionTwo(data.id)"
+        />
+      </div>
+    </ng-container>
+  </p-card>
+</ng-container>

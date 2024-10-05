@@ -1,0 +1,69 @@
+app-album {
+  .albums {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 530px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &_cards,
+    p-card,
+    .p-component {
+      width: 100%;
+      height: 200px;
+      display: flex;
+
+      .p-card-title {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  .btn-actions {
+    width: 100%;
+    column-gap: 2rem;
+    p-button {
+      width: 100%;
+    }
+  }
+  .p-card {
+    position: relative;
+    .p-card-body {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .p-card-content {
+      padding: 0;
+    }
+    .p-card-footer {
+      width: 100%;
+    }
+    .btn-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        height: auto;
+      }
+    }
+  }
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}

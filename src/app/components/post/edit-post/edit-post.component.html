@@ -1,0 +1,62 @@
+<div class="edit-container">
+  <form
+    [formGroup]="editPostForm"
+    (ngSubmit)="onSubmit()"
+    class="edit-container__form"
+  >
+    <div class="field">
+      <div class="p-input-icon-left mb-4">
+        <i class="pi pi-pencil"></i>
+        <input
+          id="title"
+          placeholder="Título"
+          type="text"
+          pInputText
+          formControlName="title"
+          class="p-inputtext p-component p-element md:w-25rem p-filled"
+          [ngClass]="{'ng-invalid ng-dirty': isSubmitted && editPostForm.controls['title'].errors?.['required']}"
+        />
+      </div>
+      <p
+        class="error-message"
+        *ngIf="isSubmitted && editPostForm.controls['title'].errors?.['required']"
+      >
+        * El título es requerido
+      </p>
+    </div>
+
+    <div class="field">
+      <div class="p-input-icon-left mb-4">
+        <textarea
+          id="body"
+          placeholder="Escribe tu post..."
+          type="text"
+          pInputText
+          formControlName="body"
+          class="p-inputtext p-component p-element md:w-25rem"
+          [ngClass]="{'ng-invalid ng-dirty': isSubmitted && (editPostForm.controls['body'].errors?.['required'])}"
+        ></textarea>
+      </div>
+      <p
+        class="error-message"
+        *ngIf="isSubmitted && editPostForm.controls['body'].errors?.['required']"
+      >
+        * El body es requerida
+      </p>
+      <p
+        class="error-message"
+        *ngIf="isSubmitted && editPostForm.controls['body'].errors?.['minlength']"
+      >
+        * El body debe tener al menos 4 caracteres
+      </p>
+    </div>
+
+    <div class="field">
+      <p-button label="Guardar cambios" type="submit"></p-button>
+    </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+  </form>
+</div>
