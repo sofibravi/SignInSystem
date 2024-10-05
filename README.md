@@ -102,7 +102,8 @@ Antes de empezar, asegúrate de tener los siguientes requisitos instalados:
 
 4. **Seguridad**:
    - El acceso a las rutas está protegido con un **AuthGuard** que valida si el usuario está autenticado.
-   - Un **Interceptor** genera un token con una expiración de 1 hora cuando el usuario inicia sesión.
+   - Un **Interceptor** valida un token con una expiración de 1 hora cuando el usuario inicia sesión.
+   - El token es creado en el servicio JwtService.
 
 ## Características
 
